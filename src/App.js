@@ -1,25 +1,26 @@
-import logo from './logo.svg';
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getUsers } from './redux/actions/users'
 import './App.css';
 
-function App() {
+const App = () => {
+  const dispatch = useDispatch()
+  const users = useSelector(state => state.users.users)
+  // const loading = useSelector(state => state.users.loading)
+  // const error = useSelector(state => state.users.error)
+
+  useEffect(() => {
+    dispatch(getUsers())
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <h1>SAGA TEST</h1>
+      <p>https://www.youtube.com/watch?v=1EVwGxXU84w</p>
+      <pre>{JSON.stringify(users, undefined, 4)}</pre>
+      {console.log(users)}
+    </>
+  )
 }
 
 export default App;
