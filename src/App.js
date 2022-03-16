@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getUsers } from './redux/actions/users'
+import { clearUsers, getUsers } from './redux/actions/users'
 import './App.css';
 
 const App = () => {
@@ -11,6 +11,10 @@ const App = () => {
 
   useEffect(() => {
     dispatch(getUsers())
+
+    setTimeout(() => {
+      dispatch(clearUsers())
+    }, 4000)
   }, [])
 
   return (

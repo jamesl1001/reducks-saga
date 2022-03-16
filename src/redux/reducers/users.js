@@ -1,5 +1,3 @@
-import * as type from '../types'
-
 const initialState = {
     users: [],
     loading: false,
@@ -8,23 +6,35 @@ const initialState = {
 
 export default function users(state = initialState, action) {
     switch (action.type) {
-        case type.GET_USERS_REQUESTED:
+        case 'GET_USERS_REQUESTED':
             return {
                 ...state,
                 loading: true,
             }
 
-        case type.GET_USERS_SUCCESS:
+        case 'GET_USERS_SUCCESS':
             return {
                 ...state,
                 loading: false,
                 users: action.users,
             }
 
-        case type.GET_USERS_FAILED:
+        case 'GET_USERS_FAILED':
             return {
                 ...state,
                 loading: false,
+                error: action.message,
+            }
+
+        case 'CLEAR_USERS_SUCCESS':
+            return {
+                ...state,
+                users: [],
+            }
+
+        case 'CLEAR_USERS_FAILED':
+            return {
+                ...state,
                 error: action.message,
             }
 

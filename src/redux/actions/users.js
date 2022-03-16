@@ -1,8 +1,11 @@
-import * as type from '../types'
-
-export function getUsers(users) {
+export function getUsers() {
     return {
-        type: type.GET_USERS_REQUESTED,
-        payload: users,
+        type: 'GET_USERS_REQUESTED',
+    }
+}
+
+export function clearUsers() {
+    return {
+        type: 'CLEAR_USERS_REQUESTED'
     }
 }
