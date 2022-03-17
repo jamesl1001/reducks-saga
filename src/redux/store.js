@@ -3,9 +3,11 @@ import { combineReducers } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 
 import rootSaga from './modules'
+import orders from './modules/orders/reducer'
 import users from './modules/users/reducer'
 
 const rootReducer = combineReducers({
+    orders: orders,
     users: users,
 })
 
